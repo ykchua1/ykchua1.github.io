@@ -1,0 +1,35 @@
+body {
+    margin: 0px;
+    overflow: auto;
+}
+
+h1 {
+    font-family: "Arial";
+    transform: translate(30px,0px);
+}
+
+h2 {
+    font-family: "Arial";
+    color: #636466
+}
+
+div {
+    transform: translate(30px,30px);
+    font-family: "Arial";
+}
+
+div.div2 {
+    transform: translate(30px,60px);
+}
+
+div#slider{
+    transform: translate(0px,0px);
+}
+
+/* rect {
+    fill: steelblue
+} */
+
+text {
+    font-size: 1.2em;
+}
