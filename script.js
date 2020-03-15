@@ -23,7 +23,8 @@ const svgMapOverlay = d3.select('.div1')
 svgMapOverlay
   .append('svg:image')
   .attr('href', 'Robinson.svg')
-  .attr('height', mapHeight);
+  .attr('height', mapHeight)
+  .attr('width', mapWidth);
 
 // enter data into newly appended groups
 function enterData(data) {
