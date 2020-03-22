@@ -245,6 +245,7 @@ const render = data => {
       
     // react when mouseover plot
     function mouseOverPlot(d) {
+      let footstepSize = 50;
       function getColor(num) {
       myColor = d3.scaleSequential().domain([probArr[1], maxProb])
         .interpolator(d3.interpolateBuGn);
@@ -253,12 +254,12 @@ const render = data => {
       return myColor(prob**scaleFactor*maxProb**(1-scaleFactor)); // note: using non linear scale to emphasize diff
       }
       d3.select('#sq'+d.ID)
-        .append('circle')
-        .attr('r', 20)
-        .attr('stroke', 'black')
-        .attr('cx', innerHeight/nEach/2)
-        .attr('cy', innerHeight/nEach/1)
-        .attr('fill', 'orange');
+        .append('image')
+        .attr('href', 'Footsteps_icon.svg')
+        .attr('height', footstepSize)
+        .attr('width', footstepSize)
+        .attr('x', innerWidth/nEach/2 - footstepSize/2)
+        .attr('y', innerHeight/nEach/2 + squareExt/2);
       d3.select('#bar'+d.ID)
         .attr('fill', 'orange');
       d3.selectAll('g.sqClass')
@@ -267,7 +268,7 @@ const render = data => {
     };
     function mouseOutPlot(d) {
       d3.select('#sq'+d.ID)
-        .select('circle')
+        .select('image')
         .remove();
       d3.select('#bar'+d.ID)
         .attr('fill', '#4682b4');
