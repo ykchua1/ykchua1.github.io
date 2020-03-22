@@ -4,6 +4,7 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    width="40"
    height="40"
+   transform='rotate(-90)'
    id="footsteps"
    version="1.1">
   <g
