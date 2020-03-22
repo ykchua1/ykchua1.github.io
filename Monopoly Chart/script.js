@@ -161,7 +161,7 @@ const render = data => {
         }
       )
       .append('image')
-      .attr('href', 'Rotate-Arrow-Top-to-Left.svg')
+      .attr('href', 'rotate.svg')
       .attr('height', rotateButtonSize)
       .attr('width', rotateButtonSize)
       .attr('x', -rotateButtonSize/2)
