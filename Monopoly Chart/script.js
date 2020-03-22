@@ -343,6 +343,18 @@ const render = data => {
         .attr('stroke-width', 2.4);
     };
 
+    // write line legend
+    d3.select('.gPlotRatio')
+      .append('text')
+      .classed('lineLegend', true)
+      .html('No house &#8594 1 house &#8594 2 houses &#8594 3 houses &#8594 4 houses &#8594 Hotel')
+      .style('font-family', 'sans-serif')
+      .style('font-size', '0.55em')
+      .style('font-weight', 700)
+      .style('fill', 'gray')
+      .attr('x', titleXAdjust)
+      .attr('y', -25);
+
     // Create an axis component with d3.axisBottom
     d3.select('.gPlotRatio').append("g")
       .attr("class", "xAxis")
@@ -395,28 +407,12 @@ const render = data => {
 	  num = '.line'+d[0].i;
 	  d3.select(num)
 	    .attr('stroke', 'orange');
-	  d3.selectAll('.lineDescrip')
-	    .remove();
-	  d3.select('.gPlotRatio')
-        .append('text')
-		.classed('lineDescrip', true)
-        .text(lineDescripts[d[0].i])
-        .style('font-family', 'sans-serif')
-        .style('font-size', '1em')
-        .style('font-weight', 700)
-		.style('fill', 'orange')
-        .attr('x', titleXAdjust)
-        .attr('y', -25);
 	};
 	function mouseOutLine(d) {
 	  num = '.line'+d[0].i;
 	  d3.select(num)
 		.transition().duration(500)
 	    .attr('stroke', 'steelblue');
-	  d3.selectAll('.lineDescrip')
-	    .transition().duration(500)
-		.style('font-size', '0em')
-	    .remove();
 	};
 	for (let i=0; i<6; i++) {
 	  d3.select('.line'+i)
