@@ -340,7 +340,7 @@ const render = data => {
         .attr("d", line)
         .attr('fill', 'none')
         .attr('stroke', 'steelblue')
-        .attr('stroke-width', 2.4);
+        .attr('stroke-width', 3.5);
     };
 
     // write line legend
@@ -408,7 +408,8 @@ const render = data => {
     function mouseOverLine(d) {
       num = '.line'+d[0].i;
       d3.select(num)
-        .attr('stroke', 'orange');
+        .attr('stroke', 'orange')
+        .attr('stroke-width', 5);
       legend[+d[0].i] = legend[+d[0].i].toUpperCase();
       d3.select('.lineLegend')
         .html(legend.join(arw))
@@ -416,8 +417,9 @@ const render = data => {
     function mouseOutLine(d) {
       num = '.line'+d[0].i;
       d3.select(num)
-      .transition().duration(500)
-        .attr('stroke', 'steelblue');
+      //.transition().duration(500)
+        .attr('stroke', 'steelblue')
+        .attr('stroke-width', 3.5);
       legend[+d[0].i] = legend[+d[0].i].toLowerCase();
       d3.select('.lineLegend')
         .html(legend.join(arw))
