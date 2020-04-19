@@ -213,7 +213,7 @@ const render = data => {
         .attr('y', d => yScale(+d.ID))
         .attr('height', barWidth)
         .attr('width', d => xScale(+d.p_landings))
-      .attr('fill', '#4682b4')
+        .attr('fill', '#4682b4')
       
     // write id of square beside bars
     d3.selectAll('.probBar')
@@ -344,10 +344,12 @@ const render = data => {
     };
 
     // write line legend
+    let legend = ['no house ', ' 1 house ', ' 2 houses ', ' 3 houses ', ' 4 houses ', ' hotel'];
+    const arw = '&#8594';
     d3.select('.gPlotRatio')
       .append('text')
       .classed('lineLegend', true)
-      .html('No house &#8594 1 house &#8594 2 houses &#8594 3 houses &#8594 4 houses &#8594 Hotel')
+      .html(legend.join(arw))
       .style('font-family', 'sans-serif')
       .style('font-size', '0.55em')
       .style('font-weight', 700)
@@ -402,23 +404,29 @@ const render = data => {
         .on('mouseout', mouseOutG);
     };
 	
-	// react when mouseover lines
-	function mouseOverLine(d) {
-	  num = '.line'+d[0].i;
-	  d3.select(num)
-	    .attr('stroke', 'orange');
-	};
-	function mouseOutLine(d) {
-	  num = '.line'+d[0].i;
-	  d3.select(num)
-		.transition().duration(500)
-	    .attr('stroke', 'steelblue');
-	};
-	for (let i=0; i<6; i++) {
-	  d3.select('.line'+i)
-	    .on('mouseover', mouseOverLine)
-		.on('mouseout', mouseOutLine);
-	};
+    // react when mouseover lines
+    function mouseOverLine(d) {
+      num = '.line'+d[0].i;
+      d3.select(num)
+        .attr('stroke', 'orange');
+      legend[+d[0].i] = legend[+d[0].i].toUpperCase();
+      d3.select('.lineLegend')
+        .html(legend.join(arw))
+    };
+    function mouseOutLine(d) {
+      num = '.line'+d[0].i;
+      d3.select(num)
+      .transition().duration(500)
+        .attr('stroke', 'steelblue');
+      legend[+d[0].i] = legend[+d[0].i].toLowerCase();
+      d3.select('.lineLegend')
+        .html(legend.join(arw))
+    };
+    for (let i=0; i<6; i++) {
+      d3.select('.line'+i)
+        .on('mouseover', mouseOverLine)
+        .on('mouseout', mouseOutLine);
+    };
   };
 
   // fetch data from API, then do some stuff with the data
