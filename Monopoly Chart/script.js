@@ -90,7 +90,7 @@ const render = data => {
       .attr('id', `txt${d.Square}`)
       .attr('class', 'txtClass')
       .attr('text-anchor', 'middle')
-      .attr('font-family', 'sans-serif')
+      .attr('font-family', 'Oswald, sans-serif')
       .style('font-size', fsize)
       .style('font-weight', fweight)
       .attr('x', innerWidth/nEach/2)
@@ -190,7 +190,7 @@ const render = data => {
     d3.select('.gPlotProb')
       .append('text')
       .text('Probabilities of landing')
-      .style('font-family', 'sans-serif')
+      .style('font-family', 'Oswald, sans-serif')
       .style('font-size', '1em')
       .style('font-weight', 700)
       .attr('x', titleXAdjust)
@@ -224,7 +224,7 @@ const render = data => {
           .attr('text-anchor', 'end')
           .attr('x', -3)
           .attr('y', yScale(+d.ID) + 8)
-          .style('font-family', 'sans-serif')
+          .style('font-family', 'Oswald, sans-serif')
           .style('font-size', '0.45em')
       });
       
@@ -311,7 +311,7 @@ const render = data => {
     d3.select('.gPlotRatio')
       .append('text')
       .text('Rent-cost ratio (streets)')
-      .style('font-family', 'sans-serif')
+      .style('font-family', 'Oswald, sans-serif')
       .style('font-size', '1em')
       .style('font-weight', 700)
       .attr('x', titleXAdjust)
@@ -350,7 +350,7 @@ const render = data => {
       .append('text')
       .classed('lineLegend', true)
       .html(legend.join(arw))
-      .style('font-family', 'sans-serif')
+      .style('font-family', 'Oswald, sans-serif')
       .style('font-size', '0.55em')
       .style('font-weight', 700)
       .style('fill', 'gray')
@@ -374,7 +374,7 @@ const render = data => {
         .attr('text-anchor', 'end')
         .attr('x', -10)
         .attr('y', d => yScale(+d.value) + 3)
-        .style('font-family', 'sans-serif')
+        .style('font-family', 'Oswald, sans-serif')
         .style('font-size', '0.45em');
 
     // react when mouseover squares (change id style)
