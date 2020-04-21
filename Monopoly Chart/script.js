@@ -189,7 +189,7 @@ const render = data => {
     // write header text
     d3.select('.gPlotProb')
       .append('text')
-      .text('Probabilities of landing')
+      .text('Probabilities of landing (%)')
       .style('font-family', 'Oswald, sans-serif')
       .style('font-size', '1em')
       .style('font-weight', 700)
@@ -228,6 +228,14 @@ const render = data => {
           .style('font-size', '0.45em')
       });
       
+    // create an axis scale with d3.axisBottom
+    d3.select('.gPlotProb').append("g")
+      .attr("class", "xAxis")
+      .attr("transform", `translate(0,-${plotHeight*0.025})`)
+      .style('font-size', '.5em')
+      .style('font-family', 'Oswald, sans-serif')
+      .call(d3.axisTop(xScale).ticks(6));
+    
     // react when mouseover squares
     function mouseOverG(d) {
       numStr = '#bar'+d.Square;
@@ -357,10 +365,12 @@ const render = data => {
       .attr('x', titleXAdjust)
       .attr('y', -25);
 
-    // Create an axis component with d3.axisBottom
+    // Create an axis scale with d3.axisBottom
     d3.select('.gPlotRatio').append("g")
       .attr("class", "xAxis")
       .attr("transform", `translate(0,${plotHeight*0.98})`)
+      .style("font-size", ".5em")
+      .style('font-family', 'Oswald, sans-serif')
       .call(d3.axisBottom(xScale));
 
     // write id of rows
