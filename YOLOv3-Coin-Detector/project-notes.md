@@ -39,9 +39,24 @@ handling later on.
 2. Perform auto-orient of photos (to zero the EXIF orientation) using ImageMagick software.
 3. Center-crop images to 800x800.
 
-**Annotation**
+**Annotation:**
 
 ![Annotation](/annotation.png)
 
 Used labelImg image labelling software by tzutalin [github link](https://github.com/tzutalin/labelImg) 
 to annotate the coins in the images in YOLO format.
+
+## Step 4 - Pull PyTorch implementation of YOLOv3 network
+
+The code that I will be using as baseline would be 
+[this](https://github.com/ayooshkathuria/YOLO_v3_tutorial_from_scratch).
+
+To better understand how YOLOv3 works, I have read through and played around with the code in the repository 
+linked above. I have performed some basic inference tasks on some example images, and observed the detection 
+outputs produced by the PyTorch module containing the YOLOv3 network.
+
+## Whats next?
+
+In the next step, I will have to study and write the loss function in code to train the network on the 
+dataset annotated by myself. I will take the code to a gcloud computing instance to train the network on a 
+GPU. Stay tuned...
