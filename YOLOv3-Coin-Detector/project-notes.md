@@ -32,15 +32,13 @@ To start off the project, I read through the papers regarding the YOLO (You Only
 
 ## Step 3 - Preprocessing images and annotation
 
-**Preprocessing:** 
-
+**Preprocessing:**
 1. Images taken from my phone are in HEIC format, thus I converted them for HEIC to JPG format for easier 
 handling later on.
 2. Perform auto-orient of photos (to zero the EXIF orientation) using ImageMagick software.
 3. Center-crop images to 800x800.
 
 **Annotation:**
-
 ![Annotation](/annotation.png)
 
 Used labelImg image labelling software by tzutalin [github link](https://github.com/tzutalin/labelImg) 
@@ -54,6 +52,12 @@ The code that I will be using as baseline would be
 To better understand how YOLOv3 works, I have read through and played around with the code in the repository 
 linked above. I have performed some basic inference tasks on some example images, and observed the detection 
 outputs produced by the PyTorch module containing the YOLOv3 network.
+
+**Handling config files and weight files:**
+There are different variations of the YOLO network out there. Therefore, in order to try out these  
+configurations of the YOLOv3 architecture, such as YOLOv3-tiny, I attempted to load them from the config files 
+available on the web into a PyTorch nn.Module model, and in the process understood how the config files are 
+structured. I also loaded pre-trained weights to shorten the training time.
 
 ## Whats next?
 
