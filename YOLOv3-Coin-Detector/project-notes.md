@@ -33,12 +33,14 @@ To start off the project, I read through the papers regarding the YOLO (You Only
 ## Step 3 - Preprocessing images and annotation
 
 **Preprocessing:**
+
 1. Images taken from my phone are in HEIC format, thus I converted them for HEIC to JPG format for easier 
 handling later on.
 2. Perform auto-orient of photos (to zero the EXIF orientation) using ImageMagick software.
 3. Center-crop images to 800x800.
 
 **Annotation:**
+
 ![Annotation](/annotation.png)
 
 Used labelImg image labelling software by tzutalin [github link](https://github.com/tzutalin/labelImg) 
@@ -54,6 +56,7 @@ linked above. I have performed some basic inference tasks on some example images
 outputs produced by the PyTorch module containing the YOLOv3 network.
 
 **Handling config files and weight files:**
+
 There are different variations of the YOLO network out there. Therefore, in order to try out these  
 configurations of the YOLOv3 architecture, such as YOLOv3-tiny, I attempted to load them from the config files 
 available on the web into a PyTorch nn.Module model, and in the process understood how the config files are 
@@ -63,4 +66,4 @@ structured. I also loaded pre-trained weights to shorten the training time.
 
 In the next step, I will have to study and write the loss function in code to train the network on the 
 dataset annotated by myself. I will take the code to a gcloud computing instance to train the network on a 
-GPU. Stay tuned...
+GPU.
