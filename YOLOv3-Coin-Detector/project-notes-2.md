@@ -2,7 +2,7 @@
 
 ## Previously..
 
-![Annotation](/annotation.jpg)
+![Annotation](/annotation.png)
 
 Thus far, I have performed the annotation of pictures of scattered coins on random surfaces. I have also 
 pulled a Github repo of a PyTorch implementation of a COCO objects detector. Although this implementation 
@@ -11,7 +11,7 @@ training script.
 
 ## Understanding the loss function
 
-![Loss func](/loss-func.png)
+![Loss func](/loss-func.PNG)
 
 The equation above shows the loss function for YOLOv1. However, as far as I understand, YOLOv3 uses a modified 
 version of the one shown above.
