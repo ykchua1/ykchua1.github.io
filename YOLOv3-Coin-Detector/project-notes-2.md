@@ -52,7 +52,7 @@ However, since the original network outputs (5 + num_classes)-column tensors, wh
 required to perform some slight modifications to the network. We are going to swap out the Conv2D layers just 
 before the YOLO layers, as shown below:
 
-![Swapping](/swapping.png)
+![Swapping](/swapping.PNG)
 
 After swapping out the Conv2D layers, the model is only going to produce wrong outputs since no training of the 
 weights has been performed on the swapped-in layers. Therefore, it is time to do a test-training loop with this 
@@ -71,7 +71,7 @@ The training seems to work fine. Next, I wrote a detection (inference) script to
 outputs throught objectness confidence thresholding and NMS, and draw the bounding boxes and their 
 classifications.
 
-![Draw the results](/sample-detection.png)
+![Draw the results](/sample-detection.PNG)
 
 The above image shows the results of detection for one of the validation images.
 
