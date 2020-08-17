@@ -67,3 +67,5 @@ structured. I also loaded pre-trained weights to shorten the training time.
 In the next step, I will have to study and write the loss function in code to train the network on the 
 dataset annotated by myself. I will take the code to a gcloud computing instance to train the network on a 
 GPU.
+
+[Go to Project Notes Part II](/project-notes-2.md)
