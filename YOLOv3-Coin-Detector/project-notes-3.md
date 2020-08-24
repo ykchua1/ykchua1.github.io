@@ -48,10 +48,25 @@ monitored the trajectory of each individual components of the losses. They are t
 loss, and the no-object loss. During a few intervals, I tweaked the weights of these components in order to keep their loss 
 balanced.
 
-I also monitored the validation losses (8 images) to make sure that it does not start rising due to overfitting.The training 
+I also monitored the validation losses (8 images) to make sure that it does not start rising due to overfitting. The training 
 process was stopped once the trajectory of the loss reduction started to flatten out.
 
 Upon completion of the training, several test predictions were made using the trained model. The images below show the outputs 
 of the trained detector:
 
 ![Overfitting](/overfit.png)
+
+From the above image, we can see that there is a large difference in the performances of the model on the training dataset and 
+the validation dataset. To my knowledge, this is a sign of overfitting of the model. My conjecture is that the model is finding 
+the wrong patterns in the training set. The issue is further compounded by the small size of our dataset that makes it harder 
+to generalise the predictions.
+
+There are a few ways of dealing with the problem of overfitting. The ones that I intend to try (in order of priority) are as 
+follows:
+
+1. Replacing the model with a smaller one. A smaller model should be less likely to find wrong patterns in the dataset, hence 
+reducing the tendency of overfitting.
+2. Extend the dataset by data augmentation.
+3. Extend the dataset by adding more sample images.
+
+
