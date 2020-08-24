@@ -104,3 +104,5 @@ representation, since the IOUs of nearest bounding box with the objects would im
 There is also a slight difference from my current loss function and the one prescribed by the YOLOv3 paper. 
 While the paper uses t<sub>\*</sub> values for the coordinate losses, I used coordinate values of range [0-416] 
 instead. Thus, I would like to experiment using the prescribed method to see if it impacts the results.
+
+[Go to Project Notes Part III](/project-notes-3.md)
