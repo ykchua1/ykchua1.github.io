@@ -69,4 +69,49 @@ reducing the tendency of overfitting.
 2. Extend the dataset by data augmentation.
 3. Extend the dataset by adding more sample images.
 
+## Training detector on a simpler model - YOLOv3-tiny
+
+The chosen model on which to train the detector on is the YOLOv3-tiny network.
+
+The first step to training the detector on a simpler model would be to to ensure that the PyTorch model is able to load the 
+YOLOv3-tiny config file. On my first attempt, the model was not able to load the config, as YOLOv3-tiny contains layers that was 
+not present in the original YOLOv3 network. That layer is the **maxpool** layer. Thus, to parse and load the config, I had to 
+add the follow code:
+
+```python3
+# If it is a maxpool layer
+if (x["type"] == "maxpool"):
+    size = int(x["size"])
+    stride = int(x["stride"])
+    if stride == 1:
+	zeropad2d = nn.ZeroPad2d((0,1,0,1))
+    else:
+	zeropad2d = nn.ZeroPad2d((0,0,0,0))
+    module.add_module("zeropad2d_{}".format(index), zeropad2d)
+    maxpool = nn.MaxPool2d(size, stride=stride)
+    module.add_module("maxpool_{}".format(index), maxpool)
+```
+
+As shown above, right before the maxpool layers I had to include a **nn.ZeroPad2d** layer. This solved the problem I faced in 
+performing the forward function of the model, as the prediction feature maps to concatenate did not match in shape. I then found 
+out that a padding layer was required in YOLOv3-tiny.
+
+After some code refactoring and debugging, I was finally able to get the model to load the tiny model with the ability to more 
+easily swap out different networks to test and train on. The results of the trained model is shown below:
+
+![Tiny result](/tiny-result.jpg)
+
+The training process was much faster than the original YOLOv3 network. I trained it using CPU on my laptop.
+
+## Evaluation and whats next
+
+Overall, I was satisfied with the detection results on the train image. It shows that the simpler model is still enough to pick 
+out the variability in features of the coins. The speed at which it trained was nice as well. Barring some overlapping detections 
+that can be fixed by tweaking the NMS parameters, the accuracy of the predictions looks good.
+
+The validation image detection showed improvements in performance since the last time when I used the full-sized YOLOv3 network. 
+The reason should be that less overfitting occured when using the simpler tiny version of YOLOv3. However, there is still much to 
+improve.
+
+Next time, I will be attempting to extend the training data, first using **data augmentation**.
 
