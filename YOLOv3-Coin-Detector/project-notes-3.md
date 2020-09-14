@@ -115,3 +115,5 @@ improve.
 
 Next time, I will be attempting to extend the training data, first using **data augmentation**.
 
+
+[Go to Project Notes Part IV](/project-notes-4.md)
